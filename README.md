@@ -4,6 +4,7 @@ This is an implementation of Godot's MultiplayerPeer (used by the high-level mul
 
 ## To use:
 * Install the GodotSteam extension, or use their pre-compiled Godot binaries: https://github.com/GodotSteam/GodotSteam
+* Install the GodotSteam C# bindings: https://github.com/LauraWebdev/GodotSteam_CSharpBindings
 * Copy and paste SteamMultiplayerPeer.cs into your Godot C# project (e.g. /addons/steam-multiplayer-peer-csharp/SteamMultiplayerPeer.cs)
 * Create an instance of SteamMultiplayerPeer and use the CreateServer/CreateClient methods as below:
 ```
@@ -26,7 +27,7 @@ This is an implementation of Godot's MultiplayerPeer (used by the high-level mul
         var error = multiplayerPeer.CreateClient(steamId, VIRTUAL_PORT);
 
         if (error != Error.Ok) {
-            GD.PrintErr("Failed to create client: ", error);
+            GD.PrintErr("Error creating client: ", error);
             return;
         }
 
