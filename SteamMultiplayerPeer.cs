@@ -391,7 +391,7 @@ public partial class SteamMultiplayerPeer : MultiplayerPeerExtension
         }
     }
 
-    private int GetPeerIdFromSteam64(ulong steam64)
+    public int GetPeerIdFromSteam64(ulong steam64)
     {
         if (connectionsBySteamId64.ContainsKey(steam64))
         {
@@ -467,13 +467,7 @@ public partial class SteamMultiplayerPeer : MultiplayerPeerExtension
                 ConnectionHandle = connectionHandle,
             };
             connectionsBySteamId64.Add(steamId, connection);
-            peerIdToSteamId.Add(connection.PeerId, connection);
         }
-    }
-
-    private int AssignPeerId()
-    {
-        return peerIdToSteamId.Count() + 2;
     }
 
     private void CloseListenSocket()
