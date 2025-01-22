@@ -24,23 +24,23 @@ public partial class SteamMultiplayerPeer : MultiplayerPeerExtension
     private int targetPeer = -1;
     private uint uniqueId = 0;
 
-    private Godot.Collections.Array _configs;
-    public Array<Steam.NetworkingConfigValue> Configs {
+    private Godot.Collections.Dictionary<Steam.NetworkingConfigValue, Variant> _configs;
+    public Godot.Collections.Dictionary<Steam.NetworkingConfigValue, Variant> Configs {
         set {
-            _configs = new Godot.Collections.Array();
+            _configs = new Godot.Collections.Dictionary<Steam.NetworkingConfigValue, Variant>();
             foreach (var item in value) {
-                _configs.Add((long) item);
+                _configs.Add(item.Key, item.Value);
             }
         }
         get {
-            return new Array<Steam.NetworkingConfigValue>(_configs);
+            return new Godot.Collections.Dictionary<Steam.NetworkingConfigValue, Variant>(_configs);
         }
     }
 
     public SteamMultiplayerPeer()
     {
         Steam.NetworkConnectionStatusChanged += _OnNetworkConnectionStatusChanged;
-        Configs = new Array<Steam.NetworkingConfigValue>();
+        Configs = new Godot.Collections.Dictionary<Steam.NetworkingConfigValue, Variant>();
     }
 
     public Error CreateServer(int localVirtualPort) {
@@ -595,4 +595,3 @@ public partial class SteamMultiplayerPeer : MultiplayerPeerExtension
         }
     }
 }
-
