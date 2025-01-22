@@ -36,8 +36,8 @@ This is an implementation of Godot's MultiplayerPeer (used by the high-level mul
 ```
 
 ## Known issues
-* Configuration flags are not yet fully implemented
 * Channels are not implemented
+* The GodotSteam C# bindings from LauraWebdev haven't yet been updated for GodotSteam 4.11+. For now, use this fork, which has updated bindings: https://github.com/craethke/GodotSteam_CSharpBindings/tree/main/addons/godotsteam_csharpbindings
 
 ## See also:
 * https://github.com/GodotSteam/GodotSteam - Bindings for the Steam API in Godot
